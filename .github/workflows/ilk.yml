@@ -1,0 +1,15 @@
+name: basit-workflowum
+run-name: calisma-adi
+
+on: 
+  push
+  
+jobs:
+  ekrana-bas:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Ekrana merhaba dunya bas!
+        run: echo Merhaba dunya!
+        
+        
