@@ -3,7 +3,7 @@ run-name: calisma-adi
 
 on: 
   push:
-    branches: ["main"]
+    branches: ["main", "diger"]
   
 jobs:
   ekrana-bas:
