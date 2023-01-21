@@ -2,7 +2,8 @@ name: basit-workflowum
 run-name: calisma-adi
 
 on: 
-  push
+  push:
+    branches: ["main"]
   
 jobs:
   ekrana-bas:
