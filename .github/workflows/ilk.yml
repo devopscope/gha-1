@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Ekrana merhaba dunya bas!
+      - name: Ekrana merhaba dunya bas! asdf
         run: echo Merhaba dunya!
         
         
