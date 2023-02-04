@@ -16,7 +16,7 @@ jobs:
       - name: Onemli Adim
         id: onemli-adim
         run: |
-#          touch hede
+          ls -l
           echo "degisiklik_var=$(git status -s | wc -l | xargs )" >> $GITHUB_OUTPUT
       - name: Degisiklik Yoksa Calisan Adim
         if: steps.onemli-adim.outputs.degisiklik_var == '0'
