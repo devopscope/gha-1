@@ -1,0 +1,27 @@
+name: basit-workflowum
+
+on: 
+  push:
+    branches:
+      - step-output
+    
+  
+jobs:
+  ekrana-bas:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Onemli Adim
+        id: onemli-adim
+        run: |
+          touch hede
+          echo "degisiklik_var=$(git status -s | wc -l | xargs )" >> $GITHUB_OUTPUT
+      - name: Duruma Gore Calisan Adim
+        if: steps.onemli-adim.outputs.degisiklik_var == '0'
+        run: |
+          echo "Degisiklik yok"
+      - name: Duruma Gore Calisan Diger Adim
+        if: steps.onemli-adim.outputs.degisiklik_var != '0'
+        run: |
+            echo "Degisiklik var"
+        
