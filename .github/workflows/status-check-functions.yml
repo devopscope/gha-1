@@ -16,12 +16,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Uygulamami Calistir
         id: uygulamami-calistir
-        continue-on-error: true
+        #continue-on-error: true
         run: |
           cd hodo
           echo "degisiklik_var=$(git status -s | wc -l | xargs)" >> $GITHUB_OUTPUT
       - name: Degisiklik Yoksa Calisan Adim
-        if: ${{ success() }}
+        #if: ${{ success() }}
         run: |
           echo "Degisiklik yok"
       - name: Degisiklik Varsa Calisan Adim
