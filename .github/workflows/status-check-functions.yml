@@ -5,7 +5,7 @@ on:
     branches:
       - step-output
     paths:
-        - '.github/workflows/step-output.yml'
+      - '.github/workflows/status-check-functions.yml'
 
 jobs:
   ekrana-bas:
@@ -17,14 +17,14 @@ jobs:
       - name: Uygulamami Calistir
         id: uygulamami-calistir
         run: |
-          ls -l
+          cd hodo
           echo "degisiklik_var=$(git status -s | wc -l | xargs)" >> $GITHUB_OUTPUT
       - name: Degisiklik Yoksa Calisan Adim
-        if: steps.uygulamami-calistir.outputs.degisiklik_var == '0'
+        if: ${{ success() }}
         run: |
           echo "Degisiklik yok"
       - name: Degisiklik Varsa Calisan Adim
-        if: steps.uygulamami-calistir.outputs.degisiklik_var != '0'
+        if: ${{ failure() }}
         run: |
             echo "Degisiklik var"
         
