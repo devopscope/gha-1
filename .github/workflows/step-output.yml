@@ -16,13 +16,13 @@ jobs:
       - name: Onemli Adim
         id: onemli-adim
         run: |
-          touch hede
+#          touch hede
           echo "degisiklik_var=$(git status -s | wc -l | xargs )" >> $GITHUB_OUTPUT
-      - name: Duruma Gore Calisan Adim
+      - name: Degisiklik Yoksa Calisan Adim
         if: steps.onemli-adim.outputs.degisiklik_var == '0'
         run: |
           echo "Degisiklik yok"
-      - name: Duruma Gore Calisan Diger Adim
+      - name: Degisiklik Varsa Calisan Adim
         if: steps.onemli-adim.outputs.degisiklik_var != '0'
         run: |
             echo "Degisiklik var"
