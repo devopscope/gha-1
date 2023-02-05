@@ -16,7 +16,7 @@ jobs:
       - name: Uygulamami Calistir
         id: uygulamami-calistir
         run: |
-          ls -l
+          touch hede
           echo "degisiklik_var_mi=$(git status -s | wc -l | xargs)" >> $GITHUB_OUTPUT
 
       - name: Degisiklik Yoksa Calisan Adim
