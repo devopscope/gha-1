@@ -1,0 +1,26 @@
+name: step-output-workflowum
+
+on:
+  push:
+    paths:
+      - '.github/workflows/step-output.yml'
+
+jobs:
+  step-output-jobim:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Uygulamami Calistir
+        id: uygulamami-calistir
+        run: |
+          ls -l
+          echo "degisiklik_var_mi=$(git status -s | wc -l | xargs)" >> $GITHUB_OUTPUT
+
+      - name: Degisiklik Yoksa Calisan Adim
+        if: steps.uygulamami-calistir.outputs.degisiklik_var_mi == '0'
+        run: |
+          echo "Degisiklik yok"
+      - name: Degisiklik Varsa Calisan Adim
+        if: steps.uygulamami-calistir.outputs.degisiklik_var_mi != '0'
+        run: |
+          echo "Degisiklik var"
